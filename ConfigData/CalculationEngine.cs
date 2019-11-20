@@ -17,25 +17,25 @@ namespace Kata_Payslip
             double money = Convert.ToDouble(salary) ;
             double taxOutput = 0.0;
             
-            if(money < 18201.0)
+            if(taxDict[0][0] < money && money < taxDict[0][1])
             {
                 return taxOutput;
             }
-            if (18200.0 < money && money < 37001.0)
+            if (taxDict[1][0] < money && money < taxDict[1][1])
             {
-                taxOutput =  ((money-18200.0)*0.19);
+                taxOutput =  ((money-taxDict[1][0])*0.19);
             }
-            if (37000.0 < money && money < 87001.0)
+            if (taxDict[2][0] < money && money < taxDict[2][1])
             {
-                taxOutput =  ((money-37000.0)*0.325)+3572.0;
+                taxOutput =  ((money-taxDict[2][0])*0.325)+3572.0;
             }
-            if (87000.0 < money && money < 180001.0)
+            if (taxDict[3][0]< money && money < taxDict[3][1])
             {
-                taxOutput = ((money-87000.0)*0.37)+19822.0;
+                taxOutput = ((money-taxDict[3][0])*0.37)+19822.0;
             }
-            if (180000.0 < money)
+            if (taxDict[4][0] < money)
             {
-                taxOutput = ((money-180000.0)*0.45)+54232.0;
+                taxOutput = ((money-taxDict[4][0])*0.45)+54232.0;
             }
 
             return Math.Round(taxOutput/12.0);

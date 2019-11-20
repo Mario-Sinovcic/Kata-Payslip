@@ -11,10 +11,10 @@ namespace Kata_Payslip.Generators
         
         public CsvFile()
         {
-            
+            createOutput();
         }
 
-        public void createOutput()
+        private void createOutput()
         {
             using(var reader = new StreamReader(paths.getSource()))
             {

@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Kata_Payslip.Generators 
 {
@@ -17,10 +13,11 @@ namespace Kata_Payslip.Generators
         
         public CommandLine()
         {
-            
+            getInput();
+            createOutput();
         }
         
-        public void getInput()
+        private void getInput()
         {
             Console.WriteLine("Please input your name:");
             name = Console.ReadLine();
@@ -36,7 +33,7 @@ namespace Kata_Payslip.Generators
             endDate = Console.ReadLine();
         }
         
-        public void createOutput()
+        private void createOutput()
         {
             Console.WriteLine("Your payslip has been generated:\n");
             Console.WriteLine("Name: "+name+" "+surname);

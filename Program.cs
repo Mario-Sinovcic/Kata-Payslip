@@ -7,7 +7,7 @@ using Kata_Payslip.Generators;
 
 namespace Kata_Payslip
 {
-    class Program : CalculationEngine
+    class Program
     {
         private static readonly Program program = new Program();
 
@@ -52,15 +52,11 @@ namespace Kata_Payslip
         private void fileInput()
         {
             CsvFile csvOutput = new CsvFile();
-            csvOutput.createOutput();
         }
 
         private void manualInput()
         { 
             CommandLine consoleOutput = new CommandLine();
-            consoleOutput.getInput();
-            consoleOutput.createOutput();
-            
         }
     }
 }

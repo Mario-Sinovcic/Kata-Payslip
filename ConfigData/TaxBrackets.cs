@@ -10,19 +10,19 @@ namespace Kata_Payslip
         public TaxBrackets()
         {
             double[] firstBracket = {0.0, 18201.0};
-            taxDict.Add(1, firstBracket);
+            taxDict.Add(0, firstBracket);
             
             double[] secondBracket = {18201.0, 37001.0};
-            taxDict.Add(2, secondBracket);
+            taxDict.Add(1, secondBracket);
             
-            double[] third = {37001.0, 87001.0};
-            taxDict.Add(3, thirdBracket);
+            double[] thirdBracket = {37001.0, 87001.0};
+            taxDict.Add(2, thirdBracket);
             
-            double[] fourth = {870000.0, 180001.0};
-            taxDict.Add(4, fourth);
+            double[] fourthBracket = {87000.0, 180001.0};
+            taxDict.Add(3, fourthBracket);
+            
+            double[] fifthBracket = {180001.0};
+            taxDict.Add(4, fifthBracket);
         }
-        
-        
-    
     }
 }
