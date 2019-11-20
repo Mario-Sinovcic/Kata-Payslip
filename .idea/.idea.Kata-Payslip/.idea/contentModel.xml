@@ -20,6 +20,7 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="PathLog.cs" t="Include" />
       <e p="Payslip.cs" t="Include" />
       <e p="Program.cs" t="Include" />
     </e>

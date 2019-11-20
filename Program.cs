@@ -8,8 +8,8 @@ namespace Kata_Payslip
 {
     class Program
     {
-        public static Program program = new Program();
-        
+        private static Program program = new Program();
+
         static void Main(string[] args)
         {
             Console.WriteLine("~~~\nWelcome to the payslip generator!\n");
@@ -53,8 +53,10 @@ namespace Kata_Payslip
             using(var reader = new StreamReader("/Users/mario.sinovcic/Documents/RiderProjects/Kata-Payslip/kata-payslip-given/sample_input.csv"))
             {
                 List<string> list = new List<string>();
-                var csv = new StringBuilder();
                 bool firstLine = true;
+                
+                var csv = new StringBuilder();
+                csv.Append("name, pay period, gross income, income tax, net income, super\n");
                 
                 while (!reader.EndOfStream)
                 {
@@ -67,28 +69,23 @@ namespace Kata_Payslip
                     {
                         var line = reader.ReadLine();
                         var values = line.Split(',');
-                    
-                        list.Add(values[0].Trim());
-                        list.Add(values[1].Trim());
-                        list.Add(values[2].Trim());
-                        list.Add(values[3].Trim());
-                        list.Add(values[4].Trim()+"\n");
+                        
+                        String[] currentLine = new string[5];
+                        for(int i=0;i<5;i++)
+                        {
+                            Regex regex = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.IgnoreCase);
+                            currentLine[i]=values[i].Trim();
+                        }
+
+                        csv.Append(currentLine[0] + " " + currentLine[1]+",");
+                        csv.Append(currentLine[4]+ ",");
+                        csv.Append(calcGross(currentLine[2])+ ",");
+                        csv.Append(calcTax(currentLine[2])+ ",");
+                        csv.Append(calcGross(currentLine[2]) - calcTax(currentLine[2])+ ",");
+                        csv.Append(calcSuper(currentLine[2],currentLine[3].Substring(0,values[3].Length-1))+ "\n");
+
                     }
                 }
-                
-                Regex regex = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.IgnoreCase);
-
-                csv.Append("name, pay period, gross income, income tax, net income, super\n");
-                foreach (var item in list) {
-                    
-                    //check values and use calculation methods
-                    
-                    Console.Write(" ");
-                    Console.Write(item);
-                    csv.Append(item);
-                }
-                
-                
                 File.WriteAllText("/Users/mario.sinovcic/Documents/RiderProjects/Kata-Payslip/kata-payslip-given/test.csv", csv.ToString());
             }
         }
@@ -134,7 +131,7 @@ namespace Kata_Payslip
             }
             if (37001.0 < money && money < 87001.0)
             {
-                return Math.Round(((((money-37000.0)*0.19)+3752.0))/12.0);
+                return Math.Round(((((money-37000.0)*0.325)+3572.0))/12.0);
             }
             if (87001.0 < money && money <= 180001.0)
             {
