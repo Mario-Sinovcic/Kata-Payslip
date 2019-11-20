@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="kata-payslip-given" t="Include">
+        <e p="kata-payslip.md" t="Include" />
+        <e p="sample_input.csv" t="Include" />
+        <e p="sample_output.csv" t="Include" />
+        <e p="test.csv" t="Include" />
+      </e>
+      <e p="Kata-Payslip.csproj" t="IncludeRecursive" />
+      <e p="Kata-Payslip.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.0" t="Include">
+            <e p="Kata-Payslip.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Payslip.cs" t="Include" />
+      <e p="Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_Kata-Payslip.-1559953376.00" t="ExcludeRecursive" />
+  </component>
+</project>
