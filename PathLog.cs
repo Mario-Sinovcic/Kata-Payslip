@@ -4,6 +4,10 @@ namespace Kata_Payslip
     {
         static string source = "/Users/mario.sinovcic/Documents/RiderProjects/Kata-Payslip/kata-payslip-given/sample_input.csv";
 
-        public string Source { get; set; }
+        private static string dest = "/Users/mario.sinovcic/Documents/RiderProjects/Kata-Payslip/kata-payslip-given/test.csv";
+
+        public string getSource() { return source; }
+        public string getDestination() { return dest; }
+
     }
 }

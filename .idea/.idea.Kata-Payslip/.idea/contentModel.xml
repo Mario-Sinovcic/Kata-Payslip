@@ -4,6 +4,7 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
+      <e p="CalculationEngine.cs" t="Include" />
       <e p="kata-payslip-given" t="Include">
         <e p="kata-payslip.md" t="Include" />
         <e p="sample_input.csv" t="Include" />
@@ -21,7 +22,6 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PathLog.cs" t="Include" />
-      <e p="Payslip.cs" t="Include" />
       <e p="Program.cs" t="Include" />
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
