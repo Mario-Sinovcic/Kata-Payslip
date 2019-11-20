@@ -5,6 +5,10 @@
       <e p=".gitignore" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="CalculationEngine.cs" t="Include" />
+      <e p="Generators" t="Include">
+        <e p="CommandLine.cs" t="Include" />
+        <e p="CsvFile.cs" t="Include" />
+      </e>
       <e p="kata-payslip-given" t="Include">
         <e p="kata-payslip.md" t="Include" />
         <e p="sample_input.csv" t="Include" />

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using Kata_Payslip.Generators;
 
 namespace Kata_Payslip
 {
     class Program : CalculationEngine
     {
-        private static Program program = new Program();
-        private static PathLog paths = new PathLog();
+        private static readonly Program program = new Program();
 
         static void Main(string[] args)
         {
@@ -51,68 +51,16 @@ namespace Kata_Payslip
         
         private void fileInput()
         {
-            using(var reader = new StreamReader(paths.getSource()))
-            {
-                List<string> list = new List<string>();
-                bool firstLine = true;
-                
-                var csv = new StringBuilder();
-                csv.Append("name, pay period, gross income, income tax, net income, super\n");
-                
-                while (!reader.EndOfStream)
-                {
-                    if (firstLine)
-                    {
-                        var line = reader.ReadLine();
-                        firstLine = false;
-                    }
-                    else
-                    {
-                        var line = reader.ReadLine();
-                        var values = line.Split(',');
-                        
-                        String[] currentLine = new string[5];
-                        for(int i=0;i<5;i++)
-                        {
-                            Regex regex = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.IgnoreCase);
-                            currentLine[i]=values[i].Trim();
-                        }
-
-                        csv.Append(currentLine[0] + " " + currentLine[1]+",");
-                        csv.Append(currentLine[4]+ ",");
-                        csv.Append(calcGross(currentLine[2])+ ",");
-                        csv.Append(calcTax(currentLine[2])+ ",");
-                        csv.Append(calcGross(currentLine[2]) - calcTax(currentLine[2])+ ",");
-                        csv.Append(calcSuper(currentLine[2],currentLine[3].Substring(0,values[3].Length-1))+ "\n");
-
-                    }
-                }
-                File.WriteAllText(paths.getDestination(), csv.ToString());
-            }
+            CsvFile csvOutput = new CsvFile();
+            csvOutput.createOutput();
         }
 
         private void manualInput()
-        {
-            Console.WriteLine("Please input your name:");
-            String name = Console.ReadLine();
-            Console.WriteLine("Please input your surname:");
-            String surname = Console.ReadLine();
-            Console.WriteLine("Please enter your annual salary:");
-            String salary = Console.ReadLine();
-            Console.WriteLine("Please enter your super rate:");
-            String superRate = Console.ReadLine();
-            Console.WriteLine("Please enter your payment start date:");
-            String startDate = Console.ReadLine();
-            Console.WriteLine("Please enter your payment end date:");
-            String endDate = Console.ReadLine();
-
-            Console.WriteLine("Your payslip has been generated:\n");
-            Console.WriteLine("Name: "+name+" "+surname);
-            Console.WriteLine("Pay Period: "+startDate+" - "+endDate);
-            Console.WriteLine("Gross Income: "+calcGross(salary));
-            Console.WriteLine("Income Tax: "+calcTax(salary));
-            Console.WriteLine("Net Income: "+(calcGross(salary)-calcTax(salary)));
-            Console.WriteLine("Super: "+calcSuper(salary,superRate));
+        { 
+            CommandLine consoleOutput = new CommandLine();
+            consoleOutput.getInput();
+            consoleOutput.createOutput();
+            
         }
     }
 }
