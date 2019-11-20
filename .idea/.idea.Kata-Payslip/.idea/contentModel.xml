@@ -4,7 +4,11 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
-      <e p="CalculationEngine.cs" t="Include" />
+      <e p="ConfigData" t="Include">
+        <e p="CalculationEngine.cs" t="Include" />
+        <e p="PathLog.cs" t="Include" />
+        <e p="TaxBrackets.cs" t="Include" />
+      </e>
       <e p="Generators" t="Include">
         <e p="CommandLine.cs" t="Include" />
         <e p="CsvFile.cs" t="Include" />
@@ -25,7 +29,6 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
-      <e p="PathLog.cs" t="Include" />
       <e p="Program.cs" t="Include" />
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
