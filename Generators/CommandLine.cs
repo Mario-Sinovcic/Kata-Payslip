@@ -10,8 +10,8 @@ namespace Kata_Payslip.Generators
         private String superRate;
         private String startDate;
         private String endDate;
-        
-        public CommandLine()
+
+        public void generate()
         {
             getInput();
             createOutput();

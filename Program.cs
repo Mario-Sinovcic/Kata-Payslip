@@ -7,7 +7,7 @@ namespace Kata_Payslip
     {
         private static readonly Program program = new Program();
 
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("~~~\nWelcome to the payslip generator!\n");
             Console.WriteLine("Are you using a .csv file (f) or a manual input (i)?");
@@ -48,11 +48,13 @@ namespace Kata_Payslip
         private void fileInput()
         {
             CsvFile csvOutput = new CsvFile();
+            csvOutput.generate();
         }
 
         private void manualInput()
         { 
             CommandLine consoleOutput = new CommandLine();
+            consoleOutput.generate();
         }
     }
 }

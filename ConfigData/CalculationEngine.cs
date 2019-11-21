@@ -13,7 +13,7 @@ namespace Kata_Payslip
         
         public double calcTax(String salary)
         {
-            double money = Convert.ToDouble(salary) ;
+            double money = Convert.ToDouble(salary);
             double taxOutput = 0.0;
             
             if(taxDict[0][0] < money && money < taxDict[0][1])

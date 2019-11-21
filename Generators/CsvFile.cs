@@ -11,6 +11,11 @@ namespace Kata_Payslip.Generators
         
         public CsvFile()
         {
+            
+        }
+
+        public void generate()
+        {
             createOutput();
         }
 
