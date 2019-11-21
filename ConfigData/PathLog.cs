@@ -7,9 +7,8 @@ namespace Kata_Payslip
         private string dest = "/Users/mario.sinovcic/Documents/RiderProjects/Kata-Payslip/kata-payslip-given/test.csv";
 
         public string getSource() { return source; }
-        public void setSource(string Source) { source = Source; }
+
         public string getDestination() { return dest; }
-        public void setDestination(string Dest) { source = Dest; }
 
     }
 }

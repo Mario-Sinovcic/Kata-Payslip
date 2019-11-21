@@ -7,7 +7,6 @@ namespace Kata_Payslip
        
         public double calcGross(String salary)
         {
-
             double money = Convert.ToDouble(salary);
             return Math.Round(money/12.0);
         }
